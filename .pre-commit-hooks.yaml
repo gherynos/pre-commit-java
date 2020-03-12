@@ -1,0 +1,20 @@
+- id: pmd
+  name: pmd
+  language: docker
+  entry: /bin/bash /opt/run_pmd.sh
+  files: \.java$
+  require_serial: true
+
+- id: cpd
+  name: cpd
+  language: docker
+  entry: /bin/bash /opt/run_cpd.sh
+  files: \.java$
+  require_serial: true
+
+- id: checkstyle
+  name: checkstyle
+  language: docker
+  entry: /bin/bash /opt/run_checkstyle.sh
+  files: \.java$
+  require_serial: true
