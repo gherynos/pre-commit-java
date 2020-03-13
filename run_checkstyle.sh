@@ -12,7 +12,7 @@ done
 # add default configuration if not specified
 cs_args="${*:1:idx-1}"
 if [[ ! $cs_args == *"-c "* ]]; then
-  cs_args="$cs_args -c /google_checks.xml"
+  cs_args="$cs_args -c /sun_checks.xml"
 fi
 
 files="${*:idx}"
