@@ -1,7 +1,6 @@
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/gherynos/pre-commit-java)
+# pre-commit-java
 
-pre-commit-java
-===============
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/gherynos/pre-commit-java)
 
 A collection of git hooks for Java to be used with the [pre-commit framework](http://pre-commit.com).
 
@@ -9,8 +8,8 @@ A collection of git hooks for Java to be used with the [pre-commit framework](ht
 
 pre-commit-java requires the following to run:
 
-  * [pre-commit](http://pre-commit.com)
-  * [Docker](https://www.docker.com)
+* [pre-commit](http://pre-commit.com)
+* [Docker](https://www.docker.com)
 
 ## Install
 
@@ -22,7 +21,7 @@ example `.pre-commit-config.yaml`:
 
 ```yaml
 - repo: https://github.com/gherynos/pre-commit-java
-  rev: v0.1.0  # Use the ref you want to point at
+  rev: v0.2.0  # Use the ref you want to point at
   hooks:
     - id: pmd
       exclude: /test/

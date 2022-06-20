@@ -1,4 +1,4 @@
-FROM openjdk:13-alpine
+FROM openjdk:17-alpine
 
 RUN apk add --update --no-cache wget unzip curl bash jq
 RUN mkdir -p /opt
