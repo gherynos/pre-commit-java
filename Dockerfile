@@ -18,3 +18,4 @@ COPY run_pmd.sh /opt
 COPY run_cpd.sh /opt
 COPY ruleset.xml /opt
 COPY run_checkstyle.sh /opt
+COPY adjusted_google_checks.xml /opt
