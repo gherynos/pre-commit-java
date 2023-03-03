@@ -21,7 +21,7 @@ example `.pre-commit-config.yaml`:
 
 ```yaml
 - repo: https://github.com/gherynos/pre-commit-java
-  rev: v0.2.0  # Use the ref you want to point at
+  rev: v0.2.1  # Use the ref you want to point at
   hooks:
     - id: pmd
       exclude: /test/
@@ -61,7 +61,7 @@ To change it, simply pass the argument to the hook:
 
 ```yaml
     - id: cpd
-      args: ['--minimum-tokens', '50']
+      args: ["--minimum-tokens", "50"]
 ```
 
 Other [CLI](https://pmd.github.io/latest/pmd_userdocs_cpd.html#cli-usage) arguments are also supported.
@@ -74,10 +74,17 @@ To specify a custom one, simply pass the argument to the hook:
 
 ```yaml
     - id: checkstyle
-      args: ['-c', 'my_checks.xml']
+      args: ["-c", "my_checks.xml"]
 ```
 
 Other [CLI](https://checkstyle.org/cmdline.html) arguments are also supported.
+
+Other configurations [part of the distribution](https://github.com/checkstyle/checkstyle/tree/master/src/main/resources) can be used like:
+
+```yaml
+    - id: checkstyle
+      args: ["-c", "/google_checks.xml"]
+```
 
 ## Author
 
