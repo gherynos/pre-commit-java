@@ -5,6 +5,8 @@
   entry: /bin/bash /opt/run_pmd.sh
   files: \.java$
   require_serial: true
+  args:
+    - platform=linux/amd64
 
 - id: cpd
   name: cpd
@@ -13,6 +15,8 @@
   entry: /bin/bash /opt/run_cpd.sh
   files: \.java$
   require_serial: true
+  args:
+    - platform=linux/amd64
 
 - id: checkstyle
   name: checkstyle
@@ -21,3 +25,5 @@
   entry: /bin/bash /opt/run_checkstyle.sh
   files: \.java$
   require_serial: true
+  args:
+    - platform=linux/amd64
