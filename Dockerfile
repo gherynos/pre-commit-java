@@ -1,6 +1,6 @@
-FROM openjdk:17-alpine
+FROM eclipse-temurin:17.0.6_10-jre
 
-RUN apk add --update --no-cache wget unzip curl bash jq
+RUN apt-get update && apt-get install --no-install-recommends -y ca-certificates wget unzip curl bash jq && rm -rf /var/lib/apt/lists/*
 RUN mkdir -p /opt
 
 RUN cd /opt \
