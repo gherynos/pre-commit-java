@@ -3,8 +3,7 @@ FROM eclipse-temurin:17.0.6_10-jre
 RUN apt-get update && apt-get install --no-install-recommends -y ca-certificates wget unzip curl bash jq && rm -rf /var/lib/apt/lists/*
 
 RUN cd /opt \
-      && export PMD_URL=$(curl --silent https://api.github.com/repos/pmd/pmd/releases/latest | jq '.assets[] | select(.name | contains("pmd-bin-") and contains(".zip")) | .browser_download_url' | sed -e 's/^"//' -e 's/"$//') \
-      && wget -nc -O pmd.zip ${PMD_URL} \
+      && wget -nc -O pmd.zip "https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.55.0/pmd-bin-6.55.0.zip" \
       && unzip pmd.zip \
       && rm pmd.zip \
       && mv pmd-bin* pmd \
