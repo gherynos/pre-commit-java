@@ -20,5 +20,5 @@ files="${*:idx}"
 eol=$'\n'
 echo "${files// /$eol}" > /tmp/list
 
-# --dir /dev/null as a workaround due to https://github.com/pmd/pmd/issues/3999
-/opt/pmd/bin/run.sh pmd -f textcolor -language java --file-list /tmp/list --dir /dev/null $pc_args
+# shellcheck disable=SC2086
+/opt/pmd/bin/run.sh pmd -f textcolor -language java --file-list /tmp/list $pc_args

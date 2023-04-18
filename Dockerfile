@@ -1,17 +1,7 @@
 FROM eclipse-temurin:17.0.6_10-jre
 
-RUN apt-get update && apt-get install --no-install-recommends -y ca-certificates wget unzip curl bash jq && rm -rf /var/lib/apt/lists/*
-
-RUN cd /opt \
-      && wget -nc -O pmd.zip "https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.55.0/pmd-bin-6.55.0.zip" \
-      && unzip pmd.zip \
-      && rm pmd.zip \
-      && mv pmd-bin* pmd \
-      && chmod -R +x pmd
-
-RUN cd /opt \
-      && export CS_URL=$(curl --silent https://api.github.com/repos/checkstyle/checkstyle/releases/latest | jq '.assets[] | select(.name | contains("checkstyle-") and contains(".jar")) | .browser_download_url' | sed -e 's/^"//' -e 's/"$//') \
-      && wget -nc -O checkstyle.jar ${CS_URL}
+COPY install.sh /opt
+RUN bash /opt/install.sh && rm -rf /var/lib/apt/lists/* && rm /opt/install.sh
 
 COPY run_pmd.sh /opt
 COPY run_cpd.sh /opt

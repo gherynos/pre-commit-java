@@ -1,0 +1,22 @@
+---
+name: test
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: eclipse-temurin:17.0.6_10-jre
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install
+        run: /bin/bash install.sh
+
+      - name: Test
+        run: |
+          cp ruleset.xml /opt
+          /bin/bash run_pmd.sh sample/SampleClass.java
+          /bin/bash run_cpd.sh sample/SampleClass.java
+          /bin/bash run_checkstyle.sh sample/SampleClass.java

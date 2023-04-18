@@ -13,14 +13,18 @@ repos:
     hooks:
       - id: markdownlint
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.4.2
+    rev: v1.5.1
     hooks:
       - id: forbid-tabs
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.29.0
+    rev: v1.30.0
     hooks:
       - id: yamllint
   - repo: https://github.com/pryorda/dockerfilelint-precommit-hooks
     rev: v0.1.0
     hooks:
       - id: dockerfilelint
+  - repo: https://github.com/syntaqx/git-hooks
+    rev: v0.0.17
+    hooks:
+      - id: shellcheck

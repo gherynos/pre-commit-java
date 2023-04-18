@@ -16,4 +16,6 @@ if [[ ! $cs_args == *"-c "* ]]; then
 fi
 
 files="${*:idx}"
+
+# shellcheck disable=SC2086
 java -jar /opt/checkstyle.jar $cs_args $files

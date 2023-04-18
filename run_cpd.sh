@@ -16,4 +16,6 @@ if [[ ! $cpd_args == *"--minimum-tokens "* ]]; then
 fi
 
 files="${*:idx}"
+
+# shellcheck disable=SC2086
 /opt/pmd/bin/run.sh cpd --format text --language java $cpd_args --files $files
