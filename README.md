@@ -1,6 +1,7 @@
 # pre-commit-java
 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/gherynos/pre-commit-java)
+[![update](https://github.com/gherynos/pre-commit-java/actions/workflows/update.yaml/badge.svg)](https://github.com/gherynos/pre-commit-java/actions/workflows/update.yaml)
 
 A collection of git hooks for Java to be used with the [pre-commit framework](http://pre-commit.com).
 
