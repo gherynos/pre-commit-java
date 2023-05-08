@@ -2,7 +2,7 @@
 
 set -e
 
-if ! git diff-index --quiet HEAD; then
+if ! git diff-index --exit-code --ignore-submodules HEAD; then
   git config --global user.name 'github-actions[bot]'
   git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
   git commit -am "patch: update tools versions"
