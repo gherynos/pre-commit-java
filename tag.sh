@@ -2,6 +2,7 @@
 
 set -e
 
+git update-index -q --refresh
 if ! git diff-index --exit-code --ignore-submodules HEAD; then
   git config --global user.name 'github-actions[bot]'
   git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
