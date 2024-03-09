@@ -9,8 +9,13 @@ for (( i=1; i <= "$#"; i++ )); do
     fi
 done
 
-# add default ruleset if not specified
+# add default version if not specified
 pc_args="${*:1:idx-1}"
+if [[ ! $pc_args == *"--use-version "* ]]; then
+  pc_args="$pc_args --use-version java-17"
+fi
+
+# add default ruleset if not specified
 if [[ ! $pc_args == *"-R "* ]]; then
   pc_args="$pc_args -R /opt/ruleset.xml"
 fi
@@ -21,4 +26,4 @@ eol=$'\n'
 echo "${files// /$eol}" > /tmp/list
 
 # shellcheck disable=SC2086
-/opt/pmd/bin/run.sh pmd -f textcolor -language java --file-list /tmp/list $pc_args
+/opt/pmd/bin/run.sh pmd -f textcolor --file-list /tmp/list $pc_args

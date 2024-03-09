@@ -35,15 +35,15 @@ example `.pre-commit-config.yaml`:
 
 ## Available Hooks
 
-| Hook name       | Description                                                                                        |
-| --------------- | -------------------------------------------------------------------------------------------------- |
-| `pmd`           | Runs the [PMD](https://pmd.github.io) static code analyzer.                                        |
-| `cpd`           | Runs the [Copy/Paste Detector (CPD)](https://pmd.github.io/pmd-6.22.0/pmd_userdocs_cpd.html).      |
-| `checkstyle`    | Runs the [Checkstyle](https://checkstyle.sourceforge.io) static code analysis tool.                |
+| Hook name    | Description                                                                                   |
+|--------------|-----------------------------------------------------------------------------------------------|
+| `pmd`        | Runs the [PMD](https://pmd.github.io) static code analyzer.                                   |
+| `cpd`        | Runs the [Copy/Paste Detector (CPD)](https://pmd.github.io/pmd-6.22.0/pmd_userdocs_cpd.html). |
+| `checkstyle` | Runs the [Checkstyle](https://checkstyle.sourceforge.io) static code analysis tool.           |
 
 ### Notes about the `pmd` hook
 
-The default ruleset used is [ruleset.xml](https://github.com/gherynos/pre-commit-java/blob/master/ruleset.xml), which runs all the Java rules with the exception of `LoosePackageCoupling`.
+The default ruleset used is [ruleset.xml](https://github.com/gherynos/pre-commit-java/blob/master/ruleset.xml), which runs all the Java rules, except for `LoosePackageCoupling`.
 
 To specify a custom ruleset, simply pass the argument to the hook:
 
@@ -52,7 +52,9 @@ To specify a custom ruleset, simply pass the argument to the hook:
       args: ["-R", "my_ruleset.xml"]
 ```
 
-Other [CLI](https://pmd.github.io/latest/pmd_userdocs_cli_reference.html#options) arguments are also supported, like `-cache` for incremental analysis.
+Furthermore, the default language version passed to PMD is `java-17`, which can be tweaked using the `--use-version` argument.
+
+Other [CLI](https://pmd.github.io/latest/pmd_userdocs_cli_reference.html#options) arguments are also supported, like `--cache` for incremental analysis.
 
 ### Notes about the `cpd` hook
 
