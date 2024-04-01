@@ -26,4 +26,4 @@ eol=$'\n'
 echo "${files// /$eol}" > /tmp/list
 
 # shellcheck disable=SC2086
-/opt/pmd/bin/run.sh pmd -f textcolor --file-list /tmp/list $pc_args
+/opt/pmd/bin/pmd check --no-progress -f textcolor --file-list /tmp/list $pc_args

@@ -15,7 +15,10 @@ if [[ ! $cpd_args == *"--minimum-tokens "* ]]; then
   cpd_args="$cpd_args --minimum-tokens 100"
 fi
 
+# populate list of files to analise
 files="${*:idx}"
+eol=$'\n'
+echo "${files// /$eol}" > /tmp/list
 
 # shellcheck disable=SC2086
-/opt/pmd/bin/run.sh cpd --format text --language java $cpd_args --files $files
+/opt/pmd/bin/pmd cpd --format text --language java $cpd_args --file-list /tmp/list
