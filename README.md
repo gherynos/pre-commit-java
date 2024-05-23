@@ -49,7 +49,7 @@ To specify a custom ruleset, simply pass the argument to the hook:
 
 ```yaml
     - id: pmd
-      args: ["-R", "my_ruleset.xml"]
+      args: ["-R=my_ruleset.xml"]
 ```
 
 Furthermore, the default language version passed to PMD is `java-17`, which can be tweaked using the `--use-version` argument.
@@ -64,7 +64,7 @@ To change it, simply pass the argument to the hook:
 
 ```yaml
     - id: cpd
-      args: ["--minimum-tokens", "50"]
+      args: ["--minimum-tokens=50"]
 ```
 
 Other [CLI](https://pmd.github.io/latest/pmd_userdocs_cpd.html#cli-usage) arguments are also supported.

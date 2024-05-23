@@ -1,29 +1,25 @@
 #!/bin/bash
 
-# find the index of the first parameter with a Java file path
-idx=1
+# extract parameters and files
+pc_args=""
+rm -f /tmp/list
 for (( i=1; i <= "$#"; i++ )); do
-    if [[ ${!i} == *.java ]]; then
-        idx=${i}
-        break
+    if [[ ${!i} =~ --?[^=]+=.* || ${!i} =~ --?[^=]+ ]]; then
+      pc_args="$pc_args ${!i}"
+    else
+      echo "${!i}" >> /tmp/list
     fi
 done
 
 # add default version if not specified
-pc_args="${*:1:idx-1}"
-if [[ ! $pc_args == *"--use-version "* ]]; then
-  pc_args="$pc_args --use-version java-17"
+if [[ ! $pc_args == *"--use-version="* ]]; then
+  pc_args="$pc_args --use-version=java-17"
 fi
 
 # add default ruleset if not specified
-if [[ ! $pc_args == *"-R "* ]]; then
-  pc_args="$pc_args -R /opt/ruleset.xml"
+if [[ ! $pc_args == *"-R="* && ! $pc_args == *"--rulesets="* ]]; then
+  pc_args="$pc_args -R=/opt/ruleset.xml"
 fi
 
-# populate list of files to analise
-files="${*:idx}"
-eol=$'\n'
-echo "${files// /$eol}" > /tmp/list
-
 # shellcheck disable=SC2086
-/opt/pmd/bin/pmd check --no-progress -f textcolor --file-list /tmp/list $pc_args
+/opt/pmd/bin/pmd check --no-progress -f=textcolor --file-list=/tmp/list $pc_args
