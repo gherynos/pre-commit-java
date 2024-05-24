@@ -56,6 +56,8 @@ Furthermore, the default language version passed to PMD is `java-17`, which can 
 
 Other [CLI](https://pmd.github.io/latest/pmd_userdocs_cli_reference.html#options) arguments are also supported, like `--cache` for incremental analysis.
 
+The arguments must be specified using the `--<arg>=<value>` (`-<arg>=<value>`) convention, as opposed to `--<arg> <value` (`-<arg> <value`) to avoid parsing errors.
+
 ### Notes about the `cpd` hook
 
 The default minimum token length is 100.
@@ -68,6 +70,8 @@ To change it, simply pass the argument to the hook:
 ```
 
 Other [CLI](https://pmd.github.io/latest/pmd_userdocs_cpd.html#cli-usage) arguments are also supported.
+
+The arguments must be specified using the `--<arg>=<value>` (`-<arg>=<value>`) convention, as opposed to `--<arg> <value` (`-<arg> <value`) to avoid parsing errors.
 
 ### Notes about the `checkstyle` hook
 
