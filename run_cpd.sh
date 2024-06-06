@@ -4,7 +4,7 @@
 cpd_args=""
 rm -f /tmp/list
 for (( i=1; i <= "$#"; i++ )); do
-    if [[ ${!i} =~ --?[^=]+=.* || ${!i} =~ --?[^=]+ ]]; then
+    if [[ ${!i} =~ ^[\ ]*--?[^=]+ ]]; then
       cpd_args="$cpd_args ${!i}"
     else
       echo "${!i}" >> /tmp/list
