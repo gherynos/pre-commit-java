@@ -2,8 +2,8 @@
 
 set -e
 
-PMD_RELEASE="https://github.com/pmd/pmd/releases/download/pmd_releases/7.6.0/pmd-dist-7.6.0-bin.zip"
-CHECKSTYLE_RELEASE="https://github.com/checkstyle/checkstyle/releases/download/checkstyle-10.18.2/checkstyle-10.18.2-all.jar"
+PMD_RELEASE="https://github.com/pmd/pmd/releases/download/pmd_releases/7.7.0/pmd-dist-7.7.0-bin.zip"
+CHECKSTYLE_RELEASE="https://github.com/checkstyle/checkstyle/releases/download/checkstyle-10.19.0/checkstyle-10.19.0-all.jar"
 
 apt-get update && apt-get install --no-install-recommends -y ca-certificates wget unzip curl bash jq
 
