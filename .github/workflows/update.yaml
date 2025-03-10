@@ -4,6 +4,7 @@ name: update
 on:
   schedule:
     - cron: '30 9 * * SUN'
+  workflow_dispatch:
 
 jobs:
   update:
