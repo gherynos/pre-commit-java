@@ -21,7 +21,7 @@ jobs:
       - name: Test
         uses: kohlerdominik/docker-run-action@v1
         with:
-          image: eclipse-temurin:21.0.9_10-jre
+          image: eclipse-temurin:21.0.9_10-jre-noble
           volumes: ${{ github.workspace }}:/workspace
           workdir: /workspace
           run: |

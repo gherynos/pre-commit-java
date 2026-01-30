@@ -1,4 +1,4 @@
-FROM eclipse-temurin:21.0.9_10-jre
+FROM eclipse-temurin:21.0.9_10-jre-noble
 
 COPY install.sh /opt
 RUN bash /opt/install.sh && rm -rf /var/lib/apt/lists/* && rm /opt/install.sh
